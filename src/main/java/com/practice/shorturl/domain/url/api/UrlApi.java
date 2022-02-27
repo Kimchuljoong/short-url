@@ -7,6 +7,7 @@ import com.practice.shorturl.domain.url.model.UrlEntity;
 import com.practice.shorturl.domain.url.service.UrlService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,6 +38,8 @@ public class UrlApi {
     @PostMapping("/url/add")
     public ResponseEntity<UrlEntity> addUrl(@RequestBody UrlDto urldto) {
 
-        return null;
+        urlService.addUrl(urldto);
+
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

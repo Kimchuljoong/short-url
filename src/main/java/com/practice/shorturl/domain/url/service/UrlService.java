@@ -24,9 +24,16 @@ public class UrlService {
     }
 
     public void addUrl(UrlDto urlDto) {
-        String shortUrl = Utils.generateShortUrl(4);
-        // todo
-        // urlRepository.save(urlEntity);
+
+        String subUrl = Utils.generateShortUrl(4);
+
+        UrlEntity newUrlEntity = UrlEntity.builder()
+                .subUrl(subUrl)
+                .destination(urlDto.getDestination())
+                .creator(urlDto.getRegPr())
+                .build();
+
+        urlRepository.save(newUrlEntity);
     }
 
 }

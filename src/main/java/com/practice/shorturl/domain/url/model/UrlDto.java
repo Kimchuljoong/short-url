@@ -13,6 +13,9 @@ import lombok.Data;
 public class UrlDto {
 
     String subUrl;
+
     String destination;
+
+    String regPr;
 
 }
