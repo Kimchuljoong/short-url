@@ -20,7 +20,7 @@ public class Utils {
 
         int idx = 0;
         while (idx < minUrlDigitNum || idx < row) {
-            int num = rand.nextInt() % urlDigits.length;
+            int num = Math.abs(rand.nextInt()) % urlDigits.length;
 
             shortUrl += urlDigits[num];
         }
