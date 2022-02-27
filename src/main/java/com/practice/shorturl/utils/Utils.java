@@ -1,0 +1,31 @@
+package com.practice.shorturl.utils;
+
+import java.util.Random;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Utils {
+
+    private static Random rand = new Random(System.currentTimeMillis());
+    private static final int minUrlDigitNum = 4;
+
+    private static final String[] urlDigits = { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n",
+            "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I",
+            "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1", "2", "3",
+            "4", "5", "6", "7", "8", "9" };
+
+    public static String generateShortUrl(int row) {
+        String shortUrl = "";
+
+        int idx = 0;
+        while (idx < minUrlDigitNum || idx < row) {
+            int num = rand.nextInt() % urlDigits.length;
+
+            shortUrl += urlDigits[num];
+        }
+
+        return shortUrl;
+    }
+
+}
