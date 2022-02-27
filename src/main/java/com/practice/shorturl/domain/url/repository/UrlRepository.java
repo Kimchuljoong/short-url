@@ -15,6 +15,4 @@ public interface UrlRepository extends JpaRepository<UrlEntity, String> {
 
     List<UrlEntity> findUrlEntitiesBycreator(String creator);
 
-    void save(UrlEntity urlEntity);
-
 }
